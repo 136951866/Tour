@@ -1,0 +1,246 @@
+/*star 公共样式--------  公共*/
+html{height:100%;}
+body{
+	height:100%;
+	font-family: "微软雅黑";	
+ 
+}
+*{margin: 0;padding: 0;}
+.red{ color: #ff2a00;}
+
+
+/*电脑设备添加样式*/
+.html_box {
+   	position: relative;
+   	width: 367px;
+   	height: 667px;
+   	margin: auto;
+   	margin-top: 4%;
+   	border: solid 8px #e4e4e4;
+   	overflow: hidden;
+}
+.html_box body{ overflow: overlay; 	
+/*	隐藏滚动条 不能滚动
+	overflow-x: hidden;     
+    overflow-y: hidden; */
+}
+.html_box .float_btn{
+	position: absolute;
+	bottom: 1rem;
+	right: 1rem;
+}
+
+/*隐藏滚动条 能滚动*/
+::-webkit-scrollbar{width:0rem;}
+
+/*mark - home*/
+.nav-title{
+	box-shadow: 0pt 0pt 10pt 0pt;
+}
+.nav-title p{
+	text-align: center;
+	line-height: 3rem;
+	font-weight: bold;
+	font-size: 1rem;
+}
+
+.float_btn{
+	position: fixed;
+	bottom: 1rem;
+	right: 1rem;
+}
+
+.custom_btn{
+	width: 2.25rem;
+}
+
+.returnbtn{
+	position: absolute;
+	z-index: 12;
+	top: 1rem;
+	left: 0.85rem;
+	width: 1rem;
+}
+
+.dis_no{
+	display: none;
+}
+
+
+/*首页*/
+.content-list{
+	
+}
+
+.content-cell{
+	width: 17rem; 
+	margin-bottom: 0.3rem;
+	position: relative;
+	margin-top: :0.3rem;
+}
+
+.copy-img{
+	width: 18.15rem;
+	height: 7.25rem;
+	margin-left: 0.35rem;
+}
+
+.content-cellh4{
+	position: absolute;
+	bottom: 1.5rem;
+	left: 1rem;
+	font-size: 0.7rem;
+	color: #FFF;
+}
+
+.address-img{
+	position: absolute;
+	bottom: 0.7rem;
+	left: 1rem;
+	width: 0.535rem;
+}
+
+.content-cell-p{
+	position: absolute;
+	left: 1.7rem;
+	bottom: 0.6rem;
+	font-size: 0.55rem;
+	color: #FFF;
+	width: 16rem;
+	/*文本不会换行，文本会在在同一行上继续，直到遇到 <br> 标签为止*/
+	display:inline-block;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow:ellipsis;
+}
+
+
+/*详情*/
+.banner{
+	position:relative;
+	width:18.7rem;
+	height: 10.55rem 
+}
+
+.banner_title{
+	color: #FFF;
+	font-size: 0.7rem;
+	position: absolute;
+	bottom: 0.4rem;
+	left: 0.85rem;
+	z-index: 12;
+}
+
+.banner_returnbtn{
+	position: absolute;
+	z-index: 12;
+	top: 0.4rem;
+	left: 0.85rem;
+	width: 1rem;
+}
+
+#slides {
+	display: none;
+	position:relative; 
+}
+
+.slidesjs-container{width: 18.75rem !important;height: 10.55rem !important;}
+.slidesjs-control{width: 18.75rem !important; height: 10.55rem !important;}
+
+.slidesjs-pagination {margin: 6px 0 0; float: right;list-style: none; bottom:10px; right:5%; z-index:12; position:absolute;}
+.slidesjs-pagination li {float: left;margin: 0 1px;}
+.slidesjs-pagination li a {
+	width: 0.4rem;
+	height: 0;
+	padding-top: 0.4rem;
+	background-image:url(../images/pagination.png);
+	background-position: 0 0;
+	float: left;
+	overflow: hidden;
+	background-size: 0.4rem;
+}
+.slidesjs-pagination li a.active,
+.slidesjs-pagination li a:hover.active {background-position: 0 -0.4rem}
+.slidesjs-pagination li a:hover {background-position: 0 -0.8rem}
+
+
+
+.s_details_nav{border-bottom: solid 1px #fed900;}
+.s_details_nav h6{
+	width: 4.68rem;text-align: center;float: left; line-height: 1.85rem;
+}
+.yellow_bj{background-color: #fed900 !important;}
+/*清除了发他浮动*/
+.clear_fix{clear: left;}
+
+
+.content_box{
+	
+}
+
+
+/*定制*/
+
+.private-list{
+	padding-left: 0.4rem;
+	padding-right: 0.4rem;
+}
+
+.private-listtitle{
+	font-size: 1rem; 
+	padding-bottom: 0.4rem;
+	padding-top: 0.4rem;
+}
+
+.private-listsubtitle{
+	font-size: 0.8rem; 
+	padding-bottom: 0.4rem;
+	border-bottom: solid 1px #eee;
+}
+
+.private-listcell{
+	border-bottom: solid 1px #eee;
+	padding-bottom: 0.4rem;
+}
+
+.private-listcell p{
+	font-size: 0.8rem; 
+	padding-bottom: 0.4rem;
+	padding-top: 0.4rem;
+}
+
+.private-listcell a{
+	font-size: 0.6rem; 
+	line-height: 1.1rem;
+	display:inline-block; 
+	width: 3.65rem; 
+	background-color: #f0f0f0; 
+	margin-right: 0.6rem; 
+	text-align: center; 
+	border-radius: 50px;
+}
+
+.private-listcell input{
+	width:16.25rem;
+	padding: 0.6rem;
+	border-radius:50px; 
+	border:solid 1px #D7D7D7; 
+	text-align: center;
+	-webkit-appearance: none; 
+	margin-bottom: 1rem;
+}
+
+
+.resultbtn{
+	width:17.5rem;
+	padding: 0.6rem;
+	border-radius:50px; 
+	color: #fff;
+	background-color: #3499dc;
+	border:solid 1px #3499dc; 
+	margin-bottom: 1rem;
+}
+
+.error{
+
+}

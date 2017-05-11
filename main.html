@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="SHORTCUT ICON" href="../images/top_logo.ico">
+		<meta name = "viewport" content = "initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta charset = "UTF-8">
+		<title>详情</title>
+
+    </script>
+        <script type="text/javascript">
+    	
+   		document.addEventListener('plusready', function(){
+   			//console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。"
+   		});
+   		
+    </script>
+	<script src="js/jquery.min.js" type="text/javascript" ></script>
+	<link rel="stylesheet" type="text/css" href="css/homecss.css"/></script>
+	</head>
+
+<body>
+	<div class="banner">
+		<div id="slides">
+			<img src="images/1.jpg">
+			<img src="images/2.jpg">
+			<img src="images/3.jpg">
+		</div>
+		<a href = "javascript:void(history.back())">
+        	<img class = "banner_returnbtn" src="images/fanhui.png"></img>
+        </a>
+		<h6 class="banner_title">
+        	Test
+        </h6>
+	</div>
+
+	<div class="study_details">
+		<div class="s_details_nav">
+			<h6 class="yellow_bj">概要</h6>
+			<h6>行程</h6>
+			<h6>费用</h6>
+			<h6>留言</h6>
+			<div class="clear_fix"></div>
+		</div>
+	</div>
+
+
+	<div class="content_box">
+		<div class = "cell cell1"> 1</div>
+		<div class = "cell cell2 dis_no"> 2</div>
+		<div class = "cell cell3 dis_no"> 3</div>
+		<div class = "cell cell4 dis_no"> 4</div>
+	</div>
+
+	<div class="float_btn">	
+		<a class="buy_pop_a" href="choice.html">
+			<img class="custom_btn" src="images/goumai.png"/>
+		</a>
+	</div>
+
+</body>
+<script src="js/rem.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/jquery.slides.min.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+	    $(function() {
+	      $('#slides').slidesjs({
+	        width:750,
+	        height:528,
+	        navigation: false,
+	        play: {
+	            active: false,
+	            auto: true,
+	            interval: 4000,
+	            swap: true
+	        }
+	      });
+	    });
+	    $("#slides").slidesjs({
+    		callback: {
+      			loaded: function(number) {
+      				$(".slidesjs-previous").hide();
+      				$(".slidesjs-next").hide();
+        			$(".banner_title").html("Test"+number+"");
+      			},
+      			complete: function(number) {
+        			$(".banner_title").html("Test"+number+"");
+      			}
+    		}
+  		});
+
+		$(".s_details_nav h6").click(function(){
+			var ta_nub=$(this).index()
+			//siblings 获得匹配集合中每个元素的同胞，通过选择器进行筛选是可选的
+			$(".s_details_nav h6").eq(ta_nub).addClass('yellow_bj').siblings().removeClass("yellow_bj");
+			$(".content_box .cell").eq(ta_nub).show().siblings().hide();
+        })
+
+	  </script>
+</html>
