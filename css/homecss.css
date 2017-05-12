@@ -7,7 +7,7 @@ body{
 }
 *{margin: 0;padding: 0;}
 .red{ color: #ff2a00;}
-
+.gray{background-color: #A9A9A9 !important;}
 
 /*电脑设备添加样式*/
 .html_box {
@@ -244,3 +244,69 @@ body{
 .error{
 
 }
+
+/*登陆*/
+
+.login-box{ 
+	background-color: #F0F0F0;
+	height: 30rem; 
+}
+
+.login-logo{
+	padding-top: 5rem; 
+	margin-left: 7.2rem;
+	width: 4rem; 
+	margin-bottom: 1.9rem;
+}
+.login-logo img{
+		width: 4rem; 
+	height: 5.4rem;
+}
+
+.login-form{min-height: 7.5rem; display: block;}
+.login-ipone{ 
+	margin-left: 1.275rem;
+	width: 14.975rem; 
+	border: none;
+	height:2.15rem ;
+	border-radius:50px; 
+	padding:0 0.8rem; 
+	margin-bottom: 0.6rem;
+}
+
+.login-test{
+	margin-left: 1.275rem;
+	width: 9rem;
+	border: none;
+	height:2.15rem ;
+	border-radius:50px; 
+	padding:0 0.8rem; 
+	margin-bottom: 0.6rem;
+}
+
+.test-btn{
+	border: none;
+	width: 5.5rem;
+	height:2.15rem ;
+	border-radius:50px; 
+	padding:0 0.8rem; 
+	margin-bottom: 0.6rem;
+	background-color:  #3499dc;
+	color: #fff;
+	-webkit-appearance: none;
+}
+
+.login-btn{
+	margin-left: 1.275rem;
+	width: 16.5rem; 
+	border: none;
+	height:2.15rem ;
+		border-radius:50px; 
+	padding:0 0.8rem; 
+	margin-bottom: 0.6rem;
+	background-color:#fed900;
+}
+
+.ipone-error{margin-left: 2rem; font-size: 0.6rem; line-height: 1.925rem; color: #f53e00;}
+
+.test-error{margin-left: 2rem; font-size: 0.6rem; line-height: 1.925rem; color: #f53e00;}

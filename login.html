@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="SHORTCUT ICON" href="../images/top_logo.ico">
+		<meta name = "viewport" content = "initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta charset = "UTF-8">
+		<title>登陆</title>
+
+    </script>
+        <script type="text/javascript">
+    	
+   		document.addEventListener('plusready', function(){
+   			//console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。"
+   		});
+   		
+    </script>
+	<script src="js/jquery.min.js" type="text/javascript" ></script>
+	<link rel="stylesheet" type="text/css" href="css/homecss.css"/></script>
+	</head>
+
+<body>
+	<div class = "nav-title">
+		<p>登陆</p>
+	</div>
+	<div class = "login-box">
+		<div class = "login-logo">
+			<img src = "images/logo.png"></img>
+		</div>
+
+		<div class="login-form">
+			<input class="login-ipone"  placeholder="手机号码" id="phone" value=""/>
+			<input class="login-test" type="" placeholder="验证码" id="code"/>
+			<input class="test-btn" type="button" value="发送验证码" onclick="settime(this)" id="send">
+			<p class="ipone-error" style="display:none">手机号码错误</p>
+			<p class="test-error" id="code-error"  style="display:none">验证码错误</p>
+			<p class="test-error" id="senging" style="display:none">验证码已发送</p>
+			<p class="test-error" id="end" style="display:none">该手机号今天获取验证码已用完!</p>
+			<p class="test-error" id="fail" style="display:none">验证码获取失败!</p>
+			<input type="hidden" id="send-code">
+		</div>
+
+		<button class = "login-btn">
+			登录
+		</button>
+
+	</div>
+
+
+	
+
+</body>
+<script src="js/rem.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+
+	$('.login-ipone').focus(function(){
+		$('.ipone-error').hide();
+	})
+	
+	$('.login-test').focus(function(){
+		$('#code-error').hide();
+	})
+
+
+	var countdown=60; 
+	function settime(obj) { 
+		var phone = $('#phone').val();
+		var a = /^((\(\d{3}\))|(\d{3}\-))?13\d{9}|14[57]\d{8}|15\d{9}|18\d{9}$/ ; 
+			if( phone.length!=11||!phone.match(a) ) { 
+				$('.ipone-error').show();
+				return false;
+			}
+			if (countdown == 0) { 
+		    	$('.test-but').removeClass('gray')
+		        obj.removeAttribute("disabled");
+		        obj.value="重新发送"; 
+		        countdown = 60; 
+		        return;
+		    } else { 
+		        obj.setAttribute("disabled", true); 
+		        $('.test-btn').addClass('gray')
+		        obj.value=countdown ; 
+		        countdown--; 
+		    } 
+		setTimeout(function() { 
+		    settime(obj) }
+		    ,1000) 		 
+		   
+	}
+
+	$("#send").click(function(){
+		var phone = $('#phone').val();
+		var a = /^((\(\d{3}\))|(\d{3}\-))?13\d{9}|14[57]\d{8}|15\d{9}|18\d{9}$/ ; 
+		if( phone.length!=11||!phone.match(a) ) { 
+			return false;
+		}
+		$.ajax({
+			type:"post", 
+			url:"http://www.getoffer.cn:80/ls/client/send/code",
+			data:{"phone":phone}, 
+			success:function(data){
+				if(data.success){//msg 是后台调用action时，你穿过来的参数
+					var code = data.object.body;
+					alert(code);
+					$('#send-code').val(code);
+				}else{
+					if(data.error.code == 'REPEAT_TRANSMISSION'){
+						$('#senging').show();
+					}else if(data.error.code == 'END_USE_DAY_NUM'){
+						$('#end').show();
+					}else if(data.error.code == 'VERIFYCODE_SEND_FAILURE'){
+						$('#fail').show();
+					}
+				}
+			} 
+		})
+		return false;
+	})
+
+	$('.login-btn').click(function(){
+		var phone = $('#phone').val();
+		location.href='home.html';
+		// var a = /^((\(\d{3}\))|(\d{3}\-))?13\d{9}|14[57]\d{8}|15\d{9}|18\d{9}$/ ; 
+		// if( phone.length!=11||!phone.match(a) ) { 
+		// 	$('.ipone-error').show();
+		// 	return false;
+		// }
+				
+	 // 	var code = $('#code').val(); 
+		// var sendcode =$('#send-code').val();
+	
+		//  if(sendcode == null || sendcode.length == 0){
+		// 	$('#code-error').show();
+		// 	return false;			
+		// }
+		
+		// if(code == null || code.length == 0 || code!=sendcode){
+		// 	$('#code-error').show();
+		// 	return false;	
+		// }   
+		
+
+		// $.ajax({
+		// 		type:"post", //表单提交类型 
+		// 		url:"http://www.getoffer.cn:80/ls/client/login", //表单提交目标 
+		// 		data:{"phone":phone,
+		// 			  "password":phone,
+		// 			  }, //表单数据
+		// 		success:function(data){
+		// 			if(data.success){//msg 是后台调用action时，你穿过来的参数
+		// 				alert("success");
+		// 			}
+		// 		} 
+			
+		// 	});
+		// return false;
+	})
+
+</script>
+</html>
