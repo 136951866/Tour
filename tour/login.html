@@ -43,6 +43,10 @@
 			登录
 		</button>
 
+		<button class = "loginregister-btn">
+			还没账号，点击注册
+		</button>
+
 	</div>
 
 
@@ -116,6 +120,7 @@
 		return false;
 	})
 
+
 	$('.login-btn').click(function(){
 		var phone = $('#phone').val();
 		location.href='home.html';
@@ -153,6 +158,10 @@
 			
 		// 	});
 		// return false;
+	})
+
+	$('.loginregister-btn').click(function(){
+		location.href='register.html';
 	})
 
 </script>
